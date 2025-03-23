@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
 }
 
-.back_home_page {
+#back_home_page {
     display: flex;
     justify-content: right;
     margin-right: 2rem;
@@ -21,7 +21,7 @@ header {
     font-family: Sans, sans-serif;
 }
 
-.back_home_page a {
+#back_home_page a {
     color: #000000 !important;
     text-decoration: none !important;
 }
@@ -30,7 +30,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.blog_header {
+#blog_header {
     font-size: 3rem;
     font-family: "Roboto Light", sans-serif;
 }
@@ -58,7 +58,7 @@ main {
     margin-left: 2rem;
 }
 
-.small_info {
+#small_info {
     font-size: 1.5rem;
     display: flex;
     align-items: center;
@@ -68,7 +68,7 @@ main {
     padding-bottom: 0.8rem;
 }
 
-.contents {
+#contents {
     margin-top: 2rem;
     font-size: 1.3rem;
     font-family: Serif, sans-serif;
@@ -76,7 +76,7 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-    .contents {
+    #contents {
         padding: unset;
     }
     main {
@@ -84,7 +84,7 @@ main {
     }
 }
 
-.responses {
+#responses {
     margin-top: 1rem;
     border-top: 1px gainsboro ridge;
     font-size: 1.3rem;
@@ -117,7 +117,7 @@ main {
     font-family: Serif, sans-serif;
 }
 
-#response_header {
+#responses_header {
     font-size: 2.5rem;
     font-family: "Sans", sans-serif;
 }
