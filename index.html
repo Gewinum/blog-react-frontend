@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <style>
+        #logo {
+            width: 160px;
+        }
+        header {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 50px;
+            margin-bottom: 3rem;
+            width: auto;
+            background: aliceblue;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .blog {
+            background: aliceblue;
+            width: 50%;
+            padding: 25px;
+            transition: all 0.3s;
+            margin: 2rem auto auto;
+        }
+
+        .blog:hover {
+            box-shadow: 5px 5px 10px #888888;
+        }
+
+        .blog_title {
+            font-size: 1.8rem;
+        }
+
+        .blog_a {
+            color: #000000 !important;
+            text-decoration: none !important;
+        }
+
+        .blog_contents {
+            font-size: 1.3rem;
+        }
+
+        .blog_author {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .blog_avatar {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            margin-right: 0.7rem;
+        }
+
+        .blog_footer {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .action_button {
+            width: 1rem;
+            height: 1rem;
+            margin-left: 2rem;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .blog {
+                width: 70%
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .blog {
+                width: 100%;
+            }
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <img src="assets/logo.png" alt="logo" class="logo" id="logo">
+    </header>
+    <main>
+        <section id="blogList">
+            <a href="./blogs/chicken-road.html" class="blog_a">
+            <article class="blog">
+                <p class="blog_author"><img class="blog_avatar" src="https://avatars.githubusercontent.com/u/78866820?v=4" alt="avatar"> Nicholas Winterhalter</p>
+                <h1 class="blog_title">Why did chicken cross the road?</h1>
+                <p class="blog_contents">
+                    It's still unknown how chicken cross the road to its full potential. However, there are many reasons why chicken cross the road.
+                </p>
+                <p class="blog_footer">
+                    Mar 3, 2025
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    12.5K
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+                        <path d="M21 6.5a2.5 2.5 0 0 0-2.5-2.5h-13A2.5 2.5 0 0 0 3 6.5v10A2.5 2.5 0 0 0 5.5 19H7v3l4.5-3H18.5A2.5 2.5 0 0 0 21 16.5v-10z"/>
+                    </svg>
+                    354
+                </p>
+            </article>
+            </a>
+            <a href="./blogs/secret-life-of-socks.html" class="blog_a">
+                <article class="blog">
+                    <p class="blog_author"><img class="blog_avatar" src="https://avatars.githubusercontent.com/u/78866820?v=4" alt="avatar"> Nicholas Winterhalter</p>
+                    <h1 class="blog_title">The Secret Life of Socks: An Investigation into Their Mysterious Disappearances</h1>
+                    <p class="blog_contents">
+                        Why do socks randomly disappear? We are about to find out
+                    </p>
+                    <p class="blog_footer">
+                        Mar 10, 2025
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        61.2K
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+                            <path d="M21 6.5a2.5 2.5 0 0 0-2.5-2.5h-13A2.5 2.5 0 0 0 3 6.5v10A2.5 2.5 0 0 0 5.5 19H7v3l4.5-3H18.5A2.5 2.5 0 0 0 21 16.5v-10z"/>
+                        </svg>
+                        1.2K
+                    </p>
+                </article>
+            </a>
+        </section>
+    </main>
+</body>
+</html>
