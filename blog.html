@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <link href="./css/blog.css" rel="stylesheet">
+    <script src="./js/database.js" defer></script>
+</head>
+<body>
+<header>
+    <img src="./assets/logo.png" alt="logo" class="logo" id="logo">
+    <div id="back_home_page">
+        <a href="./index.html">Home</a>
+    </div>
+</header>
+<main>
+    <h1 class="blog_header">{{title}}</h1>
+    <p id="author"><img class="blog_avatar" src="{{author_avatar}}" alt="avatar"> {{author_name}}</p>
+    <div id="small_info">
+        {{date}}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        {{likes}}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+            <path d="M21 6.5a2.5 2.5 0 0 0-2.5-2.5h-13A2.5 2.5 0 0 0 3 6.5v10A2.5 2.5 0 0 0 5.5 19H7v3l4.5-3H18.5A2.5 2.5 0 0 0 21 16.5v-10z"/>
+        </svg>
+        {{comments}}
+    </div>
+    <div id="contents">
+        {{contents}}
+    </div>
+    <div id="responses">
+        <p id="response_header"><strong>Responses</strong></p>
+        <div class="response" hidden>
+            <div class="response_author">
+                <img class="blog_avatar" src="{{response_avatar}}" alt="avatar">
+                {{response_author}}
+                <div class="response_date">{{response_date}}</div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="action_button" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                {{response_likes}}
+            </div>
+            <div class="response_contents">
+                <p>{{response_contents}}</p>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    const searchParams = new URLSearchParams(window.location.search);
+    const neededId = searchParams.get('id');
+    if (!neededId) {
+        window.location.href = "./index.html";
+    }
+    window.onload = () => {
+        let blog = null;
+        for (let nextBlog of window.blogDb) {
+            if (nextBlog.id === neededId) {
+                blog = nextBlog;
+                break;
+            }
+        }
+
+        if (blog === null) {
+            window.location.href = "./index.html";
+            return;
+        }
+
+        const main = document.getElementsByTagName("main")[0];
+
+        main.innerHTML = main.innerHTML.replace("{{title}}", blog.title);
+        main.innerHTML = main.innerHTML.replace("{{author_avatar}}", blog.author.avatar);
+        main.innerHTML = main.innerHTML.replace("{{author_name}}", blog.author.name);
+        main.innerHTML = main.innerHTML.replace("{{date}}", blog.date);
+        main.innerHTML = main.innerHTML.replace("{{likes}}", blog.likes);
+        main.innerHTML = main.innerHTML.replace("{{comments}}", blog.comments);
+        document.getElementById("contents").setHTMLUnsafe(blog.contents);
+
+        const responsesDiv = document.getElementById("responses");
+        const responseTemplate = document.getElementsByClassName("response").item(0);
+
+        for (let response of blog.responses) {
+            const newResp = responseTemplate.cloneNode(true);
+            newResp.innerHTML = newResp.innerHTML.replace("{{response_avatar}}", response.author.avatar);
+            newResp.innerHTML = newResp.innerHTML.replace("{{response_author}}", response.author.name);
+            newResp.innerHTML = newResp.innerHTML.replace("{{response_date}}", response.date);
+            newResp.innerHTML = newResp.innerHTML.replace("{{response_likes}}", response.likes);
+            newResp.innerHTML = newResp.innerHTML.replace("{{response_contents}}", response.contents);
+
+            newResp.removeAttribute("hidden");
+            responsesDiv.appendChild(newResp);
+        }
+    }
+</script>
+</body>
+</html>
