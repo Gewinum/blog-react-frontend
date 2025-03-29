@@ -1,6 +1,7 @@
 import type {BlogResponse} from "~/assets/data";
 import React from "react";
 import {LikeIcon} from "~/partials/LikeIcon";
+import {UserInfo} from "~/partials/UserInfo";
 
 export type BlogResponsesProps = {
     responses: BlogResponse[];
@@ -58,12 +59,7 @@ export class BlogResponses extends React.Component<BlogResponsesProps, {}> {
                 {this.props.responses.map((response, i) => {
                     return (
                         <div key={"response" + i} style={styles.response}>
-                            <div style={styles.responseAuthor}>
-                                <img style={styles.blogAvatar} src={response.author.avatar} alt="avatar" />
-                                {response.author.name}
-                                <div style={styles.responseDate}>{response.date}</div>
-                                <LikeIcon likes={response.likes} style={styles.actionButtonMargin} />
-                            </div>
+                            <UserInfo name={response.author.name} avatarUrl={response.author.avatar} date={response.date} likes={response.likes} />
                             <div style={styles.responseContents}>
                                 <p>{response.contents}</p>
                             </div>

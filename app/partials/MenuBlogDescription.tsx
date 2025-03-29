@@ -17,22 +17,6 @@ const styles = {
     blogContents: {
         fontSize: "1.3rem"
     },
-    blogAuthor: {
-        fontSize: "1rem",
-        display: "flex",
-        alignItems: "center"
-    },
-    blogAvatar: {
-        width: "1.5rem",
-        height: "1.5rem",
-        borderRadius: "50%",
-        marginRight: "0.7rem"
-    },
-    blogFooter: {
-        fontSize: "1rem",
-        display: "flex",
-        alignItems: "center"
-    },
 };
 
 export default class MenuBlogDescription extends React.Component<BlogInfo, {}> {
@@ -40,16 +24,11 @@ export default class MenuBlogDescription extends React.Component<BlogInfo, {}> {
         return (
             <a href={`/${this.props.id}`} style={styles.blogLink}>
                 <article className={"blog"}>
-                    <UserInfo name={this.props.author.name} avatarUrl={this.props.author.avatar} />
+                    <UserInfo name={this.props.author.name} avatarUrl={this.props.author.avatar} date={this.props.date} likes={this.props.likes} comments={this.props.comments} />
                     <h1 style={styles.blogTitle}>{this.props.title}</h1>
                     <p style={styles.blogContents}>
                         {this.props.description}
                     </p>
-                    <div style={styles.blogFooter}>
-                        {this.props.date}
-                        <LikeIcon likes={this.props.likes}/>
-                        <CommentIcon comments={this.props.comments} />
-                    </div>
                 </article>
             </a>
         );

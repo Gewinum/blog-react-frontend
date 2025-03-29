@@ -19,7 +19,8 @@ const styles = {
         borderTop: "1px gainsboro ridge",
         borderBottom: "1px gainsboro ridge",
         paddingTop: "0.8rem",
-        paddingBottom: "0.8rem"
+        paddingBottom: "0.8rem",
+        marginTop: "1rem",
     },
 };
 
