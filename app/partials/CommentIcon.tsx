@@ -2,7 +2,6 @@ import React from "react";
 
 export type LikeButtonProps = {
     comments: number;
-    style?: React.CSSProperties;
 }
 
 const styles = {

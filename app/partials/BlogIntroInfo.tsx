@@ -29,8 +29,8 @@ export class BlogIntroInfo extends React.Component<BlogIntroInfoProps, {}> {
         return (
             <div style={styles.smallInfo}>
                 {this.props.date}
-                <LikeIcon likes={this.props.likes} style={styles.actionButtonMargin} />
-                <CommentIcon comments={this.props.comments} style={styles.actionButtonMargin} />
+                <LikeIcon likes={this.props.likes} />
+                <CommentIcon comments={this.props.comments} />
             </div>
         );
     }
